@@ -18,6 +18,7 @@ contract Lottery{
     function enter() public payable {
         // 50 Dollars minimum
         //require();
+        require(msg.value >= getEnteranceFee(), "Not Enough ETH");
         players.push(payable(msg.sender));
     }
 
